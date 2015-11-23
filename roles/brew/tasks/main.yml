@@ -1,12 +1,19 @@
 - name: brew update
   shell: brew update
+
 - name: brew upgrade
   shell: brew upgrade
-- name: mkdir ~/bin
+
+- name: mkdir ~/bin and ~/logs
   file: path=~/bin state=directory
-- name: mkdir ~/logs
   file: path=~/logs state=directory
+
 - name: copy script for brew upgrade
-  template: src=brew_update.sh dest=~/bin/brew_update.sh owner=azusa group=staff mode=0644
-- name: launchctl
-  shell: launchctl load jp.azusa.brew.plist
+  template: src=brew_update.sh dest=~/bin/brew_update.sh owner="{{ user }}" group=staff mode=0644
+
+- name: launchctl template
+  template: src=jp.azusa.brew.plist dest=~/Library/LaunchAgents/jp.azusa.brew.plist owner="{{ user }}" group=staff mode=0644
+- name: unload launchctl
+  shell: launchctl unload ~/Library/LaunchAgents/jp.azusa.brew.plist
+- name: load launchctl
+  shell: launchctl load   ~/Library/LaunchAgents/jp.azusa.brew.plist

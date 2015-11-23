@@ -1,1 +1,5 @@
+[imac]
 localhost ansible_connection=local
+
+[imac:vars]
+user=azusa

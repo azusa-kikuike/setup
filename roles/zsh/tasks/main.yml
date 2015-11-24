@@ -1,0 +1,2 @@
+- name: install zsh
+  shell: brew install zsh

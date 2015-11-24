@@ -3,3 +3,6 @@ localhost ansible_connection=local
 
 [imac:vars]
 user=azusa
+ruby_version=2.2.3
+node_version=v4.2.2
+go_version=1.5.1

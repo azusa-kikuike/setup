@@ -1,0 +1,44 @@
+- name: install anyenv
+  git: repo=https://github.com/riywo/anyenv dest=~/.anyenv
+
+- name: add profile
+  lineinfile: dest=~/.bashrc regexp="anyenv/bin" line='export PATH="$HOME/.anyenv/bin:$PATH"'
+
+- name: add profile
+  lineinfile: dest=~/.bashrc regexp="anyenv init" line='eval "$(anyenv init -)"'
+
+- name: shell reload
+  shell: source ~/.bashrc && exec $SHELL -l
+
+- name: anyenv install rbenv
+  shell: anyenv install rbenv
+  ignore_errors: True
+
+- name: anyenv install ndenv
+  shell: anyenv install ndenv
+  ignore_errors: True
+
+- name: anyenv install goenv
+  shell: anyenv install goenv
+  ignore_errors: True
+
+- name: install ruby
+  shell: rbenv install {{ ruby_version }}
+  ignore_errors: True
+
+- name: set ruby version
+  shell: rbenv global {{ ruby_version }}
+
+- name: install node
+  shell: ndenv install {{ node_version }}
+  ignore_errors: True
+
+- name: set node version
+  shell: ndenv global {{ node_version }}
+
+- name: install go
+  shell: goenv install {{ go_version }}
+  ignore_errors: True
+
+- name: set go version
+  shell: goenv global {{ go_version }}

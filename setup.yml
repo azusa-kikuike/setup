@@ -2,5 +2,6 @@
 - hosts: all
   roles:
     - brew
-    - zsh
+    - packages
     - anyenv
+    - dotfiles

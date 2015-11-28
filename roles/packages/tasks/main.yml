@@ -1,0 +1,11 @@
+- name: install zsh
+  shell: brew install zsh
+
+- name: install wget
+  shell: brew install wget
+
+- name: install vim
+  shell: brew install vim
+
+- name: install tmux
+  shell: brew install tmux

@@ -1,0 +1,11 @@
+- name: install dotfiles
+  git: repo=git@github.com:azusa-kikuike/dotfiles.git dest=~/projects/dotfiles
+
+- name: copy .vimrc
+  file: src=~/projects/dotfiles/.vimrc dest=~/.vimrc owner="{{ user }}" group=staff mode=0644
+
+- name: copy .zshrc
+  file: src=~/projects/dotfiles/.zshrc dest=~/.zshrc owner="{{ user }}" group=staff mode=0644
+
+- name: copy .tmux.conf
+  file: src=~/projects/dotfiles/.tmux.conf dest=~/.tmux.conf owner="{{ user }}" group=staff mode=0644

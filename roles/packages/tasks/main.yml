@@ -1,6 +1,11 @@
 - name: install zsh
   shell: brew install zsh
 
+- name: change default shell
+  sudo: false
+  command: /usr/bin/chsh -s /bin/zsh
+  tags: chsh
+
 - name: install wget
   shell: brew install wget
 
@@ -9,3 +14,6 @@
 
 - name: install tmux
   shell: brew install tmux
+
+- name: install peco
+  shell: brew install peco

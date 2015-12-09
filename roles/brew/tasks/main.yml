@@ -16,4 +16,4 @@
 - name: unload launchctl
   shell: launchctl unload ~/Library/LaunchAgents/jp.azusa.brew.plist
 - name: load launchctl
-  shell: launchctl load   ~/Library/LaunchAgents/jp.azusa.brew.plist
+  shell: launchctl load -w ~/Library/LaunchAgents/jp.azusa.brew.plist
